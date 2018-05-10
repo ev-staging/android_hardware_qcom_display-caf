@@ -13,7 +13,7 @@ LOCAL_HEADER_LIBRARIES        := display_headers
 LOCAL_SHARED_LIBRARIES        := $(common_libs) libqdMetaData libsync libgrallocutils \
                                  android.hardware.graphics.common@1.1
 LOCAL_CFLAGS                  := $(common_flags) -DLOG_TAG=\"qdgralloc\" -Wall -Werror
-LOCAL_CFLAGS                  += -isystem  $(kernel_includes)
+LOCAL_CFLAGS                  += $(kernel_includes)
 LOCAL_CLANG                   := true
 LOCAL_ADDITIONAL_DEPENDENCIES := $(common_deps) $(kernel_deps)
 LOCAL_SRC_FILES               := gr_ion_alloc.cpp \
