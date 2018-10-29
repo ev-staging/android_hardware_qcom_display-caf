@@ -68,6 +68,9 @@ ifeq ($(TARGET_USES_FOD_ZPOS), true)
 LOCAL_CFLAGS                  += -DFOD_ZPOS
 endif
 
+# Allow implicit fallthroughs in hwc_display.cpp until they are fixed.
+LOCAL_CFLAGS                  += -Wno-error=implicit-fallthrough
+
 LOCAL_SRC_FILES               := hwc_session.cpp \
                                  hwc_session_services.cpp \
                                  hwc_display.cpp \
