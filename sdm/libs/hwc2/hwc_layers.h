@@ -94,6 +94,9 @@ class HWCLayer {
   void ResetValidation() { needs_validate_ = false; }
   bool NeedsValidation() { return (needs_validate_ || geometry_changes_); }
   bool IsNonIntegralSourceCrop() { return non_integral_source_crop_; }
+#ifdef FOD_ZPOS
+  bool IsFodPressed() { return fod_pressed_; }
+#endif
 
  private:
   Layer *layer_ = nullptr;
@@ -107,6 +110,9 @@ class HWCLayer {
   int32_t dataspace_ =  HAL_DATASPACE_UNKNOWN;
   bool needs_validate_ = true;
   bool non_integral_source_crop_ = false;
+#ifdef FOD_ZPOS
+  bool fod_pressed_ = false;
+#endif
 
   // Composition requested by client(SF)
   HWC2::Composition client_requested_ = HWC2::Composition::Device;
